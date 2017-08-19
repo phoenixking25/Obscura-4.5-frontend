@@ -1,13 +1,13 @@
 import { Component, OnInit, NgZone} from '@angular/core';
 import { FacebookService, InitParams, LoginResponse } from 'ngx-facebook';
-import { AuthService, AppGlobals } from 'angular2-google-login';
+import {HTTPService} from '../_services/http.service';
 
   
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [AuthService]
+  providers: [ HTTPService]
 })
 export class LoginComponent implements OnInit {
   imageURL: string;
@@ -15,11 +15,12 @@ export class LoginComponent implements OnInit {
   name: string;
   token: string;
   LoginOptions: any;
+
   
   constructor(
         private fb: FacebookService,
-        private auth: AuthService,
-        private zone: NgZone
+        private zone: NgZone, 
+        private http : HTTPService
   ) {
     let initParams: InitParams = {
       appId: '482076445491176',
@@ -29,13 +30,8 @@ export class LoginComponent implements OnInit {
     };
     fb.init(initParams);
    }
-
   
-  ngOnInit() {
-    AppGlobals.GOOGLE_CLIENT_ID = '802725431757-hjgkfe6valnvupeletpn8jjfgo2p80fk.apps.googleusercontent.com';
-    this.getData();
-    setTimeout(() => { this.googleAuthenticate() }, 50);
-  }
+  ngOnInit(){}   
 
   loginWithFacebook(): void {
     const options = {
@@ -44,37 +40,13 @@ export class LoginComponent implements OnInit {
       enable_profile_selector: true
     };
     this.fb.login(options)
-      .then((response: LoginResponse) => console.log(response))
+      .then((response: LoginResponse) => this.fbInfo(response.authResponse.accessToken))
       .catch((error: any) => console.error(error));
   }
-
-  googleAuthenticate() {
-    let self = this;
-    this.auth.authenticateUser((result) => {
-      console.log('result: ', result);
-      // Using Angular2 Zone dependency to manage the scope of variables
-      self.zone.run(() => {
-        self.getData();
-      });
-    });
+  fbInfo(info: string): void{
+    this.http.post('http://localhost:8080/getToken',info)
+    this.http.get('https://graph.facebook.com/v2.8/me?fields=id%2Cname%2Cemail%2Cpicture&format=json&access_token='+info)
+            .subscribe();
   }
-  
-  logout(){
-    this.auth.userLogout(()=>{
-      this.clearLocalStorage();
-    });
-  }
-  getData() {
-    this.token = localStorage.getItem('token');
-    this.imageURL = localStorage.getItem('image');
-    this.name = localStorage.getItem('name');
-    this.email = localStorage.getItem('email');
-  }
-  clearLocalStorage() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('image');
-    localStorage.removeItem('name');
-    localStorage.removeItem('email');
-}
   
 }

@@ -19,6 +19,7 @@ import 'hammerjs';
 import { MaterialModule } from '@angular/material';
 import { FacebookModule } from 'ngx-facebook';
 import { AuthService, AppGlobals } from 'angular2-google-login';
+import { GooglesigninComponent } from './googlesignin/googlesignin.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { AuthService, AppGlobals } from 'angular2-google-login';
     LeaderboardComponent,
     DashboardComponent,
     SignupComponent,
-    InfoComponent
+    InfoComponent,
+    GooglesigninComponent
   ],
   imports: [
     BrowserModule,

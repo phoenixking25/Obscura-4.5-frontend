@@ -9,7 +9,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class HTTPService  {
     constructor(private http: Http ){}
-    private basepath = "http://localhost:8000/";
+    private basepath = "";
     post(path:string='', body:any,  ) {
             let headers = new Headers();
             headers.append('Content-Type', 'application/x-www-form-urlencoded');
