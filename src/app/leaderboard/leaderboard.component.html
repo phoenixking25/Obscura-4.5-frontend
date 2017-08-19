@@ -1,0 +1,9 @@
+<div class="head"></div>
+<div class="bottom"></div>
+<md-card class="card">
+    <h1>Leaderboard</h1>
+    <br>
+    <md-card class="element" *ngFor="let entry of player">
+        Name:{{entry.name}} Level:{{entry.currlevel}}
+    </md-card>
+</md-card>

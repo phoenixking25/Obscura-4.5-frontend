@@ -1,0 +1,18 @@
+.back {
+    min-height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-image: url('../../assets/images/back.jpg');
+}
+
+#start {
+    position: absolute;
+    left: 13%;
+    top: 28%;
+    color: #adadad;
+}
+
+#start1 {
+    position: relative;
+    left: 20%;
+}

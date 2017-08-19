@@ -1,0 +1,34 @@
+<md-sidenav-container class="back">
+    <md-sidenav #sidenav class="sidenav">
+        <button md-raised-button [routerLink]="['/level/1']">Levels</button>
+        <br>
+        <br>
+        <button md-raised-button [routerLink]="['/leaderboard']">Leaderboard</button>
+    </md-sidenav>
+
+    <div class="head">
+        <button md-raised-button (click)="sidenav.open()"><md-icon>menu</md-icon></button>
+        <p class="welcome">
+            Hi Anuj
+        </p>
+
+    </div>
+    <div class="bottom"></div>
+    <md-card class="card">
+        <h1>{{level.name}}</h1>
+        <br>
+        <md-card class="element">
+            <div>
+                {{level.photo}}
+            </div>
+        </md-card>
+        <br>
+        <form>
+            <md-input-container>
+                <input mdInput placeholder="Type your answer here">
+            </md-input-container><br>
+            <button md-raised-button>Submit</button>
+        </form>
+    </md-card>
+
+</md-sidenav-container>
