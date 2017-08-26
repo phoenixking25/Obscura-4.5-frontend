@@ -1,18 +1,70 @@
-.back {
-    min-height: 100%;
+.header {
     width: 100%;
-    background-size: cover;
-    background-image: url('../../assets/images/back.jpg');
+    height: 12%;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    background-color: #2C3E50;
+    color: white;
+    padding-bottom: 2%;
+    font-weight: 700;
+    align-content: centre;
 }
 
-#start {
-    position: absolute;
-    left: 13%;
-    top: 28%;
-    color: #adadad;
+.content {
+    height: 100%;
+    width: 100%;
 }
 
-#start1 {
+.footer {
+    background-color: #2C3E50;
+    height: 9%;
+    text-align: center;
+    color: white
+}
+
+#one {
+    background-color: #49E3C3;
+    align-content: centre;
+    color: white;
+}
+
+#three {
+    background-color: #49E3C3;
+    color: white;
+    height: 70%;
+}
+
+#logo {
     position: relative;
-    left: 20%;
+    top: 25%;
+    left: 35%;
+    width: 50%;
+    align-content: centre;
+    align-items: centre;
+    align-self: centre;
+}
+
+#img-logo {
+    left: 10%;
+    position: relative;
+}
+
+#button-go {
+    color: #2C3E50;
+    left: 16%;
+    position: relative;
+}
+
+#heading {
+    left: 6%;
+    position: relative;
+}
+
+.content-info {
+    text-align: center;
+}
+
+#two {
+    color: #2C3E50;
 }

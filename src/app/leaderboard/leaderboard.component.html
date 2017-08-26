@@ -1,9 +1,17 @@
-<div class="head"></div>
-<div class="bottom"></div>
-<md-card class="card">
-    <h1>Leaderboard</h1>
-    <br>
-    <md-card class="element" *ngFor="let entry of player">
-        Name:{{entry.name}} Level:{{entry.currlevel}}
+<md-card class="header">
+    <h3><b>OBSCURA 4.5</b></h3>
+    <button class="navigators" md-raised-button (click)="Logout()">LOGOUT</button>
+    <button class="navigators" md-raised-button (click)="getAlias()">ARENA</button>
+</md-card>
+<md-card class="content" id="one">
+    <md-card id="content-card">
+        <h2><b>LEADERBOARD</b></h2>
+        <br>
+        <md-card-content>
+            <md-card class="name-plate"></md-card>
+        </md-card-content>
     </md-card>
+</md-card>
+<md-card class="footer">
+    <h4><b>GAWDS 2017</b></h4>
 </md-card>

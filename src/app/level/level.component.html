@@ -1,34 +1,28 @@
-<md-sidenav-container class="back">
-    <md-sidenav #sidenav class="sidenav">
-        <button md-raised-button [routerLink]="['/level/1']">Levels</button>
+<md-card class="header">
+    <h3><b>OBSCURA 4.5</b></h3>
+    <button class="navigators" md-raised-button (click)="Logout()">LOGOUT</button>
+    <button class="navigators" md-raised-button (click)="leaderboard()">LEADERBOARD</button>
+</md-card>
+<md-card class="content" id="one">
+    <md-card id="content-card">
+        <h2><b></b></h2>
+        <br>
+        <img src="" height="100" width="100">
         <br>
         <br>
-        <button md-raised-button [routerLink]="['/leaderboard']">Leaderboard</button>
-    </md-sidenav>
-
-    <div class="head">
-        <button md-raised-button (click)="sidenav.open()"><md-icon>menu</md-icon></button>
-        <p class="welcome">
-            Hi Anuj
-        </p>
-
-    </div>
-    <div class="bottom"></div>
-    <md-card class="card">
-        <h1>{{level.name}}</h1>
         <br>
-        <md-card class="element">
-            <div>
-                {{level.photo}}
-            </div>
-        </md-card>
         <br>
-        <form>
+        <form #myForm="ngForm" (ngSubmit)="submitForm(myForm.value)">
             <md-input-container>
-                <input mdInput placeholder="Type your answer here">
+                <input mdInput placeholder="Type your answer here" [(ngModel)]="answer.ans" name="ans">
             </md-input-container><br>
             <button md-raised-button>Submit</button>
         </form>
     </md-card>
-
-</md-sidenav-container>
+    <md-card id="twitter">
+        <a class="twitter-timeline" href="https://twitter.com/obscura_nit_kkr">Tweets by Obscura</a>
+    </md-card>
+</md-card>
+<md-card class="footer">
+    <h4><b>GAWDS 2017</b></h4>
+</md-card>

@@ -1,7 +1,14 @@
-<div class="head"></div>
-<div class="bottom"></div>
-<md-card class="card">
-    <h1>Login to Obscura</h1>
-    <button md-raised-button (click)="loginWithFacebook()">Login with Facebook</button>
-    <google-signin></google-signin>
+<md-card class="header">
+    <h3><b>OBSCURA 4.5</b></h3>
+</md-card>
+<md-progress-bar *ngIf="bar" id="progress" mode="indeterminate"></md-progress-bar>
+<md-card class="content" id="one">
+    <div id="content-card">
+        <h3><b>LOGIN TO OBSCURA</b></h3>
+        <button md-raised-button (click)="loginWithFacebook()">Login with Facebook</button>
+        <google-signin></google-signin>
+    </div>
+</md-card>
+<md-card class="footer">
+    <h4><b>GAWDS 2017</b></h4>
 </md-card>

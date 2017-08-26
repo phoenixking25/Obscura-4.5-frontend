@@ -1,57 +1,66 @@
-.back {
+.header {
     width: 100%;
-    height: 100%;
-}
-
-.example-sidenav-content {
-    display: flex;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-}
-
-.sidenav {
-    padding: 20px;
-    width: 20%;
-}
-
-.head {
-    position: absolute;
-    height: 30%;
-    width: 100%;
-    background-color: black;
-}
-
-.bottom {
-    position: absolute;
-    top: 30%;
-    height: 70%;
-    width: 100%;
-    background-color: #5c595e;
-}
-
-.card {
-    position: absolute;
+    height: 12%;
+    position: fixed;
+    top: 0;
     z-index: 1;
-    width: 60%;
-    top: 15%;
-    left: 5%;
-}
-
-.element {
-    background-color: #f4f6f9;
-}
-
-.welcome {
+    background-color: #2C3E50;
     color: white;
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 1%;
+    padding-bottom: 2%;
+    font-weight: 700;
+    align-content: centre;
 }
 
-.logo {
+.content {
+    top: 9%;
+    height: 91%;
+    width: 100%;
+}
+
+.footer {
+    background-color: #2C3E50;
+    height: 9%;
+    text-align: center;
+    color: white;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+}
+
+#progress {
+    z-index: 1;
+    top: 12%;
     position: absolute;
-    top: 0;
-    left: 49%;
+}
+
+#one {
+    background-color: #49E3C3;
+    align-content: centre;
+    color: white;
+}
+
+#content-card {
+    width: 50%;
+    position: relative;
+    left: 1%;
+    top: 13%;
+    color: #2C3E50;
+}
+
+.navigators {
+    float: right;
+    right: 2%;
+    color: #2C3E50;
+    margin: 1%;
+    position: relative;
+    top: -210%;
+}
+
+#twitter {
+    position: relative;
+    height: 90%;
+    width: 30%;
+    right: -69%;
+    top: -53%;
+    overflow-y: scroll;
 }

@@ -5,9 +5,12 @@ export class Level {
     photo: string;
 }
 export class Player{
-    name: string;
-    photo: string;
-    college: string;
-    phone: number;
-    currlevel: number;
+    name : string;
+    email : string;
+    username : string;
+    college : string;
+    phone : number;
+    level : string;
+    levelId : number;
+    picture : string;
 }

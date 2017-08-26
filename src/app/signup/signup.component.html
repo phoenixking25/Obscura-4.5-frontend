@@ -1,25 +1,34 @@
-<div class="head"></div>
-<div class="bottom"></div>
-<md-card class="card">
-    <h1>Sign up to Obscura</h1>
-    <md-input-container class="fields">
-        <input mdInput placeholder="First Name">
-    </md-input-container>
-    <md-input-container class="fields">
-        <input mdInput placeholder="Last Name">
-    </md-input-container>
-    <br>
-    <md-input-container class="fields">
-        <input mdInput type="email" placeholder="Email Address">
-    </md-input-container>
-    <br>
-    <md-input-container class="fields">
-        <input mdInput placeholder="Username">
-    </md-input-container>
-    <br>
-    <md-input-container class="fields">
-        <input mdInput type="password" placeholder="Password">
-    </md-input-container>
-    <br>
-    <button md-raised-button [routerLink]="['/dashboard']">Sign Up</button>
+<md-card class="header">
+    <h3><b>OBSCURA 4.5</b></h3>
+</md-card>
+<md-card class="content" id="one">
+    <md-card id="content-card">
+        <h2><b>SIGN UP TO OBSCURA</b></h2>
+        <form #myForm="ngForm" (ngSubmit)="submitForm(myForm.value)">
+            <md-input-container class="fields">
+                <input mdInput placeholder="Name" [(ngModel)]="player.name" disabled name="name">
+            </md-input-container>
+            <br>
+            <md-input-container class="fields">
+                <input mdInput type="email" placeholder="Email Address" disabled [(ngModel)]="player.email" name="email">
+            </md-input-container>
+            <br>
+            <md-input-container class="fields">
+                <input mdInput placeholder="Username" [(ngModel)]="player.username" name="username">
+            </md-input-container>
+            <br>
+            <md-input-container class="fields">
+                <input mdInput placeholder="College" [(ngModel)]="player.college" name="college">
+            </md-input-container>
+            <br>
+            <md-input-container class="fields">
+                <input mdInput placeholder="phone" [(ngModel)]="player.phone" name="phone">
+            </md-input-container>
+            <br>
+            <button md-raised-button>Sign Up</button>
+        </form>
+    </md-card>
+</md-card>
+<md-card class="footer">
+    <h4><b>GAWDS 2017</b></h4>
 </md-card>

@@ -3,7 +3,7 @@ import { Http, Response,  RequestOptions,Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import {keys as _keys} from 'lodash';
 import 'rxjs/add/operator/toPromise';
-
+import 'rxjs/add/operator/map';
 
 
 @Injectable()
@@ -12,19 +12,60 @@ export class HTTPService  {
     private basepath = "";
     post(path:string='', body:any,  ) {
             let headers = new Headers();
-            headers.append('Content-Type', 'application/x-www-form-urlencoded');
+            headers.append('Content-Type', 'application/json');
             let options = new RequestOptions({ headers: headers });
-            let json='json='+ JSON.stringify(body)
+            let json = JSON.stringify(body)
             return this.http.post( this.basepath + path, json, options)
-                .subscribe((res: Response) => { return res.json(); })
-        }
+            .map((res: Response) => {return res.json();})
+    }
 
     get(path:string='', parameters:any={},){
-        // let keys=_keys(parameters)
-        // let query='?'
-        // for (let i=0; i<keys.length;i++){
-        //     query=query+keys[i]+'='+parameters[keys[i]]+'&'
-        // }
-        return this.http.get(this.basepath + path )   
+        return this.http.get(this.basepath + path ) 
+        .map((res: Response) => {return res.json();})  
     }
+
+    authGet(path:string=''){
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('auth', localStorage.getItem('token'));
+        let options = new RequestOptions({headers: headers});
+        // if(Object.keys(parameters).length > 0){
+        //     return this.http.get(this.basepath + path +'/'+ parameters, options ) 
+        //     .map((res: Response) => {return res.json();})  
+        // }
+        return this.http.get(this.basepath + path, options ) 
+        .map((res: Response) => {return res.json();})  
+    }
+
+    authPGet(path:string='', parameters:any={},){
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('auth', localStorage.getItem('token'));
+        let options = new RequestOptions({headers: headers});
+        // if(Object.keys(parameters).length > 0){
+        //     return this.http.get(this.basepath + path +'/'+ parameters, options ) 
+        //     .map((res: Response) => {return res.json();})  
+        // }
+        return this.http.get(this.basepath + path +'/'+ parameters, options ) 
+        .map((res: Response) => {return res.json();})  
+    }
+
+    authPost(path:string='', body:any,  ) {
+            let headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+            headers.append('auth', localStorage.getItem('token'));
+            let options = new RequestOptions({ headers: headers });
+            let json = JSON.stringify(body)
+            return this.http.post( this.basepath + path, json, options)
+            .map((res: Response) => {return res.json();})
+    }
+    authPostAns(path:string='',parameters: any ={}, body:any,  ) {
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('auth', localStorage.getItem('token'));
+        let options = new RequestOptions({ headers: headers });
+        let json = JSON.stringify(body)
+        return this.http.post( this.basepath + path +'/'+ parameters, json, options)
+        .map((res: Response) => {return res.json();})
+}
 }
