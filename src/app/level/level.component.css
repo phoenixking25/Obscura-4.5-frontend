@@ -12,9 +12,11 @@
 }
 
 .content {
-    top: 9%;
-    height: 91%;
+    top: 12%;
     width: 100%;
+    text-align: center;
+    /* height: 100%; */
+    position: absolute
 }
 
 .footer {
@@ -35,8 +37,8 @@
 
 #one {
     background-color: #49E3C3;
-    align-content: centre;
     color: white;
+    min-height: 100%;
 }
 
 #content-card {
@@ -57,10 +59,21 @@
 }
 
 #twitter {
-    position: relative;
-    height: 90%;
-    width: 30%;
-    right: -69%;
-    top: -53%;
+    position: absolute;
     overflow-y: scroll;
+    right: 2%;
+    height: 70%;
+    width: 30%;
+}
+
+.member {
+    width: 20%;
+    margin: 2%;
+    float: left;
+}
+
+#question {
+    position: absolute;
+    left: 2%;
+    width: 60%;
 }

@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone, AfterViewInit} from '@angular/core';
 import { HTTPService } from '../_services/http.service';
 import { ActivatedRoute, ParamMap} from '@angular/router';
 import { Location } from '@angular/common';
 import { Player } from '../_models/level';
 import { LeaderBoard } from '../_models/leaderboard';
 import { Router } from '@angular/router';
-
+import {MdSnackBar} from '@angular/material';
+import { Alias } from '../_models/Alias';
+ 
 @Component({
   selector: 'app-leaderboard',
   templateUrl: './leaderboard.component.html',
@@ -13,18 +15,21 @@ import { Router } from '@angular/router';
   providers: [HTTPService]
 })
 export class LeaderboardComponent implements OnInit {
-  leaderboard: LeaderBoard[];
-  Alias: any = {alias: ''};
+  leaderboard: LeaderBoard[] = [{username: '', college: '', level: ''}];
+  alias: Alias = {alias: '', status: ''};
+  reload: boolean = true;
 
   constructor(
     private http: HTTPService,
-    private router: Router
+    private router: Router,
+    public snackBar: MdSnackBar,
+    private zone: NgZone
   ) { }
 
   ngOnInit() {
-    this.getPlayer()
+    this.getPlayer();
   }
-  getPlayer(){
+  getPlayer() {
     this.http.authGet('http://localhost:8080/player/')
       .subscribe(leaderboard => this.leaderboard = leaderboard);
   }
@@ -33,10 +38,28 @@ export class LeaderboardComponent implements OnInit {
     this.router.navigateByUrl('/');
   }
   getAlias(): void{
-    this.http.authGet('http://localhost:8080/level/').subscribe(Alias => this.levelNavigate(Alias['alias']));
+    this.http.authGet('http://localhost:8080/level/').subscribe(alias => this.navigator(alias));
   }
-  levelNavigate(alias): void{
-    console.log('routing');
-    this.router.navigateByUrl('/level/' + alias);
+  navigator(alias: any): void{
+    if (alias['status'] === 'success') {
+      this.router.navigateByUrl('/level/' + alias['alias']);
+    }
+    else {
+      this.openSnackBar(alias['status']);
+    }
+  }
+  ourTeam(): void{
+    this.router.navigateByUrl('/team');
+  }
+  openSnackBar(status: string){
+    this.snackBar.open(status, 'Try Again Later',{
+      duration: 2500,
+    });
+  }
+  reloadPage() {
+    this.reload = false;
+    this.zone.runOutsideAngular(() => {
+        location.reload();
+    });
   }
 }

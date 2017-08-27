@@ -1,5 +1,7 @@
 <md-card class="header">
-    <h3><b>OBSCURA 4.5</b></h3>
+    <h3 [ngx-scroll-to]="'#one'"><b>OBSCURA 4.5</b></h3>
+    <button md-button class="navigators" [ngx-scroll-to]="'#three'"><b>ABOUT US</b></button>
+    <button md-button class="navigators" [ngx-scroll-to]="'#two'"><b>RULES</b></button>
 </md-card>
 <md-card class="content" id="one">
     <div id="logo">
@@ -11,15 +13,19 @@
     </div>
 </md-card>
 <md-card class="content" id="two">
-    <div class="content-info">
+    <div class="content-info" id="rules">
+        <br>
+        <br>
         <h1><b>RULES</b></h1>
-        <p>
+        <h3>
+            * Google is our best friend.
+            <br><br><br> * There is no age limit.
 
-        </p>
+        </h3>
     </div>
 </md-card>
 <md-card class="content" id="three">
-    <div class="content-info">
+    <div class="content-info" id="contact">
         <h1><b>ABOUT US</b></h1>
         <br><br>
         <h3>One of the most happening and fun crypt hunts of this year is ObscurA 4.5. ObscurA is derived from the word "Obscure" which means "keep from being seen; conceal", and that is what we do. We allow you to use any means at your disposal (that includes

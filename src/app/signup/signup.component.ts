@@ -3,6 +3,7 @@ import { Player } from '../_models/level';
 import { SignupRes } from '../_models/response';
 import { HTTPService } from '../_services/http.service';
 import { Router } from '@angular/router';
+import {MdSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-signup',
@@ -16,7 +17,8 @@ export class SignupComponent implements OnInit {
   
   constructor(
     private http: HTTPService,
-    private router: Router
+    private router: Router,
+    private snackBar: MdSnackBar
   ) { }
 
   ngOnInit() {
@@ -42,7 +44,12 @@ export class SignupComponent implements OnInit {
       this.router.navigateByUrl('/leaderboard');
     }
     else{
-      alert(signupres['status']);
+      this.openSnackBar(signupres['status']);
     }
+  }
+  openSnackBar(status: string){
+    this.snackBar.open(status, 'Try Again',{
+      duration: 2500,
+    });
   }
 }

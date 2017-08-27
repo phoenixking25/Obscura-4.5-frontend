@@ -2,13 +2,17 @@
     <h3><b>OBSCURA 4.5</b></h3>
     <button class="navigators" md-raised-button (click)="Logout()">LOGOUT</button>
     <button class="navigators" md-raised-button (click)="getAlias()">ARENA</button>
+    <button class="navigators" md-raised-button (click)="ourTeam()">OUR TEAM</button>
 </md-card>
 <md-card class="content" id="one">
     <md-card id="content-card">
         <h2><b>LEADERBOARD</b></h2>
-        <br>
         <md-card-content>
-            <md-card class="name-plate"></md-card>
+            <md-card class="name-plate" *ngFor="let entry of leaderboard">
+                <b>{{entry.username}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <b>{{entry.college}}</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <b>{{entry.level}}</b>
+            </md-card>
         </md-card-content>
     </md-card>
 </md-card>

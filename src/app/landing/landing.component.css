@@ -9,6 +9,16 @@
     padding-bottom: 2%;
     font-weight: 700;
     align-content: centre;
+    float: left;
+}
+
+.navigators {
+    float: right;
+    right: 2%;
+    color: white;
+    margin: 1%;
+    position: relative;
+    top: -210%;
 }
 
 .content {
@@ -52,7 +62,7 @@
 
 #button-go {
     color: #2C3E50;
-    left: 16%;
+    left: 18%;
     position: relative;
 }
 

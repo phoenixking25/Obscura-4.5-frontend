@@ -8,18 +8,19 @@ import { LandingComponent } from './landing/landing.component';
 import { LoginComponent } from './login/login.component';
 import { LevelComponent } from './level/level.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { SignupComponent } from './signup/signup.component';
-import { InfoComponent } from './info/info.component';
+import { OurTeamComponent } from './our-team/our-team.component';
 
 import {AppRoutingModule} from './app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import 'hammerjs';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 import { MaterialModule } from '@angular/material';
 import { FacebookModule } from 'ngx-facebook';
 import { AuthService, AppGlobals } from 'angular2-google-login';
 import { GooglesigninComponent } from './googlesignin/googlesignin.component';
+
 
 
 @NgModule({
@@ -29,10 +30,9 @@ import { GooglesigninComponent } from './googlesignin/googlesignin.component';
     LoginComponent,
     LevelComponent,
     LeaderboardComponent,
-    DashboardComponent,
     SignupComponent,
-    InfoComponent,
-    GooglesigninComponent
+    GooglesigninComponent,
+    OurTeamComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +41,8 @@ import { GooglesigninComponent } from './googlesignin/googlesignin.component';
     AppRoutingModule,
     MaterialModule,
     BrowserAnimationsModule,
-    FacebookModule.forRoot()
+    FacebookModule.forRoot(),
+    ScrollToModule.forRoot()
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

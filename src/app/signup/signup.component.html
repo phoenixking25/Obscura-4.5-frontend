@@ -14,18 +14,18 @@
             </md-input-container>
             <br>
             <md-input-container class="fields">
-                <input mdInput placeholder="Username" [(ngModel)]="player.username" name="username">
+                <input mdInput placeholder="Username" required [(ngModel)]="player.username" name="username">
             </md-input-container>
             <br>
             <md-input-container class="fields">
-                <input mdInput placeholder="College" [(ngModel)]="player.college" name="college">
+                <input mdInput placeholder="College" required [(ngModel)]="player.college" name="college">
             </md-input-container>
             <br>
             <md-input-container class="fields">
-                <input mdInput placeholder="phone" [(ngModel)]="player.phone" name="phone">
+                <input mdInput placeholder="phone" required minlength="10" maxlength="10" [(ngModel)]="player.phone" name="phone">
             </md-input-container>
             <br>
-            <button md-raised-button>Sign Up</button>
+            <button md-raised-button [disabled]="!myForm.form.valid">Sign Up</button>
         </form>
     </md-card>
 </md-card>

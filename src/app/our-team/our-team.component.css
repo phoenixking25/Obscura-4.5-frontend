@@ -12,9 +12,11 @@
 }
 
 .content {
-    top: 9%;
-    height: 91%;
+    top: 12%;
     width: 100%;
+    text-align: center;
+    /* height: 100%; */
+    position: absolute
 }
 
 .footer {
@@ -40,12 +42,19 @@
 }
 
 #content-card {
+    height: 70%;
     width: 60%;
     position: relative;
     left: 20%;
-    top: 13%;
+    top: 30%;
     color: #2C3E50;
     text-align: center;
+}
+
+.member {
+    width: 20%;
+    margin: 2%;
+    float: left;
 }
 
 .navigators {
@@ -55,10 +64,4 @@
     margin: 1%;
     position: relative;
     top: -210%;
-}
-
-.name-plate {
-    background-color: #2C3E50;
-    color: rgb(255, 255, 255);
-    margin-bottom: 2%;
 }

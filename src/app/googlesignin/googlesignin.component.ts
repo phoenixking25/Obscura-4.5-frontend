@@ -20,7 +20,7 @@ export class GooglesigninComponent implements OnInit, AfterViewInit {
   googleRes: string[];
   bar: boolean;
   private clientId = '802725431757-hjgkfe6valnvupeletpn8jjfgo2p80fk.apps.googleusercontent.com';
-  loginres: LoginRes = {status:'', token: '', backend:''};
+  loginres: LoginRes = {status: '', token: '', backend: '', provider: ''};
 
   private scope = [
     'profile',
