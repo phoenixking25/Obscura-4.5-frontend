@@ -20,6 +20,8 @@ import { MaterialModule } from '@angular/material';
 import { FacebookModule } from 'ngx-facebook';
 import { AuthService, AppGlobals } from 'angular2-google-login';
 import { GooglesigninComponent } from './googlesignin/googlesignin.component';
+import { AuthServices } from './_services/authguard.service';
+import { CanActivateViaAuthGuard } from './authGaurd';
 
 
 
@@ -44,7 +46,7 @@ import { GooglesigninComponent } from './googlesignin/googlesignin.component';
     FacebookModule.forRoot(),
     ScrollToModule.forRoot()
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthServices, CanActivateViaAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
