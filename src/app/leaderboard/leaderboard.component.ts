@@ -7,7 +7,7 @@ import { LeaderBoard } from '../_models/leaderboard';
 import { Router } from '@angular/router';
 import {MdSnackBar} from '@angular/material';
 import { Alias } from '../_models/Alias';
- 
+
 @Component({
   selector: 'app-leaderboard',
   templateUrl: './leaderboard.component.html',
@@ -18,6 +18,7 @@ export class LeaderboardComponent implements OnInit {
   leaderboard: LeaderBoard[] = [{username: '', college: '', level: ''}];
   alias: Alias = {alias: '', status: ''};
   reload: boolean = true;
+  level: any[] = [{'name': '', 'levelNo': null}];
 
   constructor(
     private http: HTTPService,
@@ -28,9 +29,10 @@ export class LeaderboardComponent implements OnInit {
 
   ngOnInit() {
     this.getPlayer();
+    this.getLevelList();
   }
   getPlayer() {
-    this.http.authGet('http://localhost:8080/player/')
+    this.http.authGet('http://localhost:8080/leaderboard/')
       .subscribe(leaderboard => this.leaderboard = leaderboard);
   }
   Logout(): void{
@@ -61,5 +63,12 @@ export class LeaderboardComponent implements OnInit {
     this.zone.runOutsideAngular(() => {
         location.reload();
     });
+  }
+  getLevelList(){
+    this.http.authGet('http://localhost:8080/levelList/')
+              .subscribe(level => this.level = level);
+  }
+  openLevel(alias: string){
+    this.router.navigateByUrl('/level/' + alias);
   }
 }

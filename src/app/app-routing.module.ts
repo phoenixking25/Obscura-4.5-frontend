@@ -8,6 +8,8 @@ import { LevelComponent } from './level/level.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { SignupComponent } from './signup/signup.component';
 import { OurTeamComponent } from './our-team/our-team.component';
+import { LevelListComponent } from './level-list/level-list.component';
+import { CreateLevelComponent } from './create-level/create-level.component';
 
 const routes: Routes = [
     {path:'', redirectTo: '/landing', pathMatch: 'full'},
@@ -17,6 +19,9 @@ const routes: Routes = [
     {path: 'leaderboard', component: LeaderboardComponent, canActivate:[ CanActivateViaAuthGuard]},
     {path: 'signup', component: SignupComponent},
     {path: 'team', component: OurTeamComponent, canActivate:[ CanActivateViaAuthGuard]},
+    {path: 'admin/levellist', component: LevelListComponent, canActivate:[ CanActivateViaAuthGuard]},
+    {path: 'admin/createlevel', component: CreateLevelComponent, canActivate:[ CanActivateViaAuthGuard]},
+
 ];
 
 @NgModule({

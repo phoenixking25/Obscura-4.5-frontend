@@ -15,7 +15,7 @@
     top: 12%;
     width: 100%;
     text-align: center;
-    /* height: 100%; */
+    min-height: 100%;
     position: absolute
 }
 
@@ -54,7 +54,6 @@
 .member {
     width: 20%;
     margin: 2%;
-    float: left;
 }
 
 .navigators {
@@ -64,4 +63,10 @@
     margin: 1%;
     position: relative;
     top: -210%;
+}
+.fx{
+  margin-top: 3%;
+}
+img{
+  height: 10%;
 }

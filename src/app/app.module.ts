@@ -11,6 +11,7 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { SignupComponent } from './signup/signup.component';
 import { OurTeamComponent } from './our-team/our-team.component';
 
+
 import {AppRoutingModule} from './app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import 'hammerjs';
@@ -22,6 +23,10 @@ import { AuthService, AppGlobals } from 'angular2-google-login';
 import { GooglesigninComponent } from './googlesignin/googlesignin.component';
 import { AuthServices } from './_services/authguard.service';
 import { CanActivateViaAuthGuard } from './authGaurd';
+import { LevelListComponent } from './level-list/level-list.component';
+import { CreateLevelComponent } from './create-level/create-level.component';
+import {CountDown} from "ng2-date-countdown";
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
@@ -34,9 +39,13 @@ import { CanActivateViaAuthGuard } from './authGaurd';
     LeaderboardComponent,
     SignupComponent,
     GooglesigninComponent,
-    OurTeamComponent
+    OurTeamComponent,
+    LevelListComponent,
+    CreateLevelComponent,
+    CountDown
   ],
   imports: [
+    FlexLayoutModule,
     BrowserModule,
     FormsModule,
     HttpModule,

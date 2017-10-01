@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { HTTPService } from '../_services/http.service';
 import { ActivatedRoute, ParamMap} from '@angular/router';
 import { Location } from '@angular/common';
 import { Level } from '../_models/level';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import {MdSnackBar} from '@angular/material';
 
 
@@ -18,6 +18,7 @@ export class LevelComponent implements OnInit {
   level: Level = {name: '', photo: '', ans:'', js: ''};
   answer: any = {ans: ''};
   ansres: any = {status: '', nextalias:''};
+  private sub: any;
   constructor(
     private router: Router,
     private http: HTTPService,
@@ -36,12 +37,12 @@ export class LevelComponent implements OnInit {
     });
   }
   getLevel(){
-    this.http.authPGet('http://localhost:8080/getLevel', this._id)
+    this.http.authPGet('http://localhost:8080/level', this._id)
       .subscribe(level => this.level = level);
   }
 
   submitForm(ans: any){
-    this.http.authPostAns('http://localhost:8080/getAns', this._id, ans)
+    this.http.authPostAns('http://localhost:8080/level', this._id, ans)
     .subscribe(ansres => this.navigator(ansres));
     this.answer['ans'] = '';
     }
@@ -68,4 +69,5 @@ export class LevelComponent implements OnInit {
   ourTeam(): void{
     this.router.navigateByUrl('/team');
   }
+
 }
