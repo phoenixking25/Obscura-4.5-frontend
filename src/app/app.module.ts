@@ -17,7 +17,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import 'hammerjs';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
-import { MaterialModule } from '@angular/material';
+import { MaterialModule } from './material.module';
 import { FacebookModule } from 'ngx-facebook';
 import { AuthService, AppGlobals } from 'angular2-google-login';
 import { GooglesigninComponent } from './googlesignin/googlesignin.component';
