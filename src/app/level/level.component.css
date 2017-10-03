@@ -50,12 +50,7 @@
 }
 
 .navigators {
-    float: right;
-    right: 2%;
-    color: #2C3E50;
-    margin: 1%;
-    position: relative;
-    top: -210%;
+  width: 50%;
 }
 
 #twitter {
@@ -76,4 +71,8 @@
     position: absolute;
     left: 2%;
     width: 60%;
+}
+#btns{
+  text-align: right;
+  color: black;
 }

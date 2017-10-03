@@ -13,12 +13,7 @@
 }
 
 .navigators {
-    float: right;
-    right: 2%;
-    color: white;
-    margin: 1%;
-    position: relative;
-    top: -210%;
+  width: 50%;
 }
 
 .content {
@@ -48,11 +43,10 @@
 #logo {
     position: relative;
     top: 25%;
-    left: 35%;
+    margin: auto;
     width: 50%;
-    align-content: centre;
-    align-items: centre;
-    align-self: centre;
+    text-align: center;
+    color: #2C3E50;
 }
 
 #img-logo {
@@ -61,7 +55,7 @@
 }
 
 #button-go {
-    color: #2C3E50;
+
     left: 18%;
     position: relative;
 }
@@ -77,4 +71,10 @@
 
 #two {
     color: #2C3E50;
+}
+#btns{
+  text-align: right;
+}
+#title{
+  padding-bottom: 1%;
 }

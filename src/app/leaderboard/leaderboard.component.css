@@ -13,7 +13,7 @@
 
 .content {
     top: 9%;
-    height: 91%;
+    min-height: 91%;
     width: 100%;
 }
 
@@ -49,21 +49,23 @@
 }
 
 .navigators {
-    float: right;
-    right: 2%;
-    color: #2C3E50;
-    margin: 1%;
-    position: relative;
-    top: -210%;
+  width: 50%;
 }
 
 .name-plate {
     background-color: #2C3E50;
     color: rgb(255, 255, 255);
     margin-bottom: 2%;
-    padding: 5%;
+    padding: 6%;
 }
 .detail{
   float: left;
   width: 33%;
+}
+#btns{
+  text-align: right;
+  color: black;
+}
+h3{
+  margin: 0;
 }

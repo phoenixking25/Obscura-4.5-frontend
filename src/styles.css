@@ -14,3 +14,6 @@ html {
 .hacked_font{
   font-family: hacked;
 }
+h3{
+  margin: 0;
+}

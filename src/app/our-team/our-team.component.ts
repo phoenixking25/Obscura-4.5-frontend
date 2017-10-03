@@ -10,7 +10,7 @@ import {MdSnackBar} from '@angular/material';
   providers: [HTTPService]
 })
 export class OurTeamComponent implements OnInit {
-
+  level: any[] = [{'name': '', 'levelNo': null}];
   constructor(
     private router: Router,
     private http: HTTPService,
@@ -18,6 +18,7 @@ export class OurTeamComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getLevelList();
   }
   Logout(): void{
     localStorage.clear();
@@ -41,5 +42,12 @@ export class OurTeamComponent implements OnInit {
     this.snackBar.open(status, 'Try Again Later',{
       duration: 2500,
     });
+  }
+  getLevelList(){
+    this.http.authGet('http://localhost:8080/levelList/')
+              .subscribe(level => this.level = level);
+  }
+  openLevel(alias: string){
+    this.router.navigateByUrl('/level/' + alias);
   }
 }

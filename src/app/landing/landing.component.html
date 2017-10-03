@@ -1,15 +1,19 @@
-<md-card class="header">
-    <h3 [ngx-scroll-to]="'#one'" class="hacked_font"><b>OBSCURA 4.5</b></h3>
-    <button md-button class="navigators" [ngx-scroll-to]="'#three'"><b>ABOUT US</b></button>
-    <button md-button class="navigators" [ngx-scroll-to]="'#two'"><b>RULES</b></button>
+<md-card class="header" fxLayout="row" fxLayoutAlign="stretch">
+  <div class="navigators" id="title">
+      <h3 [ngx-scroll-to]="'#one'" class="hacked_font"><b>OBSCURA 4.5</b></h3>
+  </div>
+  <div class="navigators" id="btns">
+    <button md-button  [ngx-scroll-to]="'#two'"><b>RULES</b></button>
+    <button md-button  [ngx-scroll-to]="'#three'"><b>ABOUT US</b></button>
+  </div>
 </md-card>
 <md-card class="content" id="one">
     <div id="logo">
-        <img id="img-logo" src="../assets/images/a.png" height="200" width="200"><br>
-        <h1 id="heading" class="hacked_font"><b>OBSCURA 4.5</b></h1>
+        <img  src="../assets/images/a.png" height="200" width="200"><br>
+        <h1 class="hacked_font"><b>OBSCURA 4.5</b></h1>
         <br>
         <br>
-        <button id="button-go" md-raised-button [routerLink]="['/login']"><h4>Lets Go!!!</h4></button>
+        <button  md-raised-button [routerLink]="['/login']"><h4>Let's Go</h4></button>
     </div>
 </md-card>
 <md-card class="content" id="two">
@@ -20,7 +24,7 @@
         <h3>
           * Use of Google is permitted. What's more, we recommend the use of Google.<br><br><br>
           * Upper case characters, spaces and special characters are not permitted in the answers.<br><br><br>
-          * Out of the box is encouraged as ObscurA puts up questions which require unconventional line of thought.<br><br><br>
+          * Out of the box thinking is encouraged as ObscurA puts up questions which require unconventional line of thought.<br><br><br>
           * We give hints only if asked properly.<br><br><br>
           * Keep an eye on our FB page and Twitter handle as we will regularly post hints and updates there.
         </h3>
@@ -31,7 +35,7 @@
         <h1><b>ABOUT US</b></h1>
         <br><br>
         <h3>One of the most happening and fun crypt hunts of this year is ObscurA 4.5. ObscurA is derived from the word "Obscure" which means "keep from being seen; conceal", and that is what we do. We allow you to use any means at your disposal (that includes
-            google) to crack the questions we pose to you, with special prizes for cracking some specific questions, BUT there is a catch. Our questions are not straightforward, most of them are based on wordplay, cyphers and lateral thinking (among other
+            google) to crack the questions we pose to you, with special prizes for cracking some specific questions, BUT there is a catch. Our questions are not straightforward. Most of them are based on wordplay, cyphers and lateral thinking (among other
             things). So put on your thinking caps, flex your fingers and get ready for a race to decide who will crack the last question first and will be the winner of Obscura4.5. Happy hunting!!.. </h3>
     </div>
 </md-card>

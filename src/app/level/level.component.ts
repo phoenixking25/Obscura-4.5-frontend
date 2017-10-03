@@ -15,9 +15,10 @@ import {MdSnackBar} from '@angular/material';
 })
 export class LevelComponent implements OnInit {
   _id: string;
-  level: Level = {name: '', photo: '', ans:'', js: ''};
+  clevel: Level = {name: '', photo: '', ans:'', js: ''};
   answer: any = {ans: ''};
   ansres: any = {status: '', nextalias:''};
+  level: any[] = [{'name': '', 'levelNo': null}];
   private sub: any;
   constructor(
     private router: Router,
@@ -32,13 +33,12 @@ export class LevelComponent implements OnInit {
     );
     this.route.params.subscribe((param: ParamMap) => {
       this._id = param['id'];
-      console.log(this._id);
       this.getLevel();
     });
   }
   getLevel(){
     this.http.authPGet('http://localhost:8080/level', this._id)
-      .subscribe(level => this.level = level);
+      .subscribe(clevel => this.clevel = clevel);
   }
 
   submitForm(ans: any){
@@ -69,5 +69,11 @@ export class LevelComponent implements OnInit {
   ourTeam(): void{
     this.router.navigateByUrl('/team');
   }
-
+  openLevel(alias: string){
+    this.router.navigateByUrl('/level/' + alias);
+  }
+  getLevelList(){
+    this.http.authGet('http://localhost:8080/levelList/')
+              .subscribe(level => this.level = level);
+  }
 }

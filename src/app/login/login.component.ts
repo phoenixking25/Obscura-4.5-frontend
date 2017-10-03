@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   LoginOptions: any;
   fbRes: string[];
   loginres: LoginRes = {status: '', token: '', backend: '', provider: ''};
-  bar: boolean;
+  bar: boolean = false;
 
   constructor(
         private fb: FacebookService,
@@ -42,7 +42,6 @@ export class LoginComponent implements OnInit {
     fb.init(initParams);
    }
   ngOnInit(){
-    this.bar = false;
   }
 
   loginWithFacebook(): void {
@@ -71,13 +70,13 @@ export class LoginComponent implements OnInit {
       }
       this.router.navigateByUrl('/leaderboard');
     }
-    else{    
+    else{
       localStorage.setItem('name', loginres['name']);
       localStorage.setItem('email', loginres['backend']);
       if (loginres['provider'] === 'google'){
         window.location.href = 'http://localhost:4200/signup';
       }
-      this.router.navigateByUrl('/signup');  
+      this.router.navigateByUrl('/signup');
     }
   }
   googleLogin() {
