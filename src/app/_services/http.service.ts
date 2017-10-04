@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class HTTPService  {
     constructor(private http: Http ){}
-    private basepath = "";
+    private basepath = "http://api.obscuranitkkr.co.in";
     post(path:string='', body:any,  ) {
             let headers = new Headers();
             headers.append('Content-Type', 'application/json');
@@ -20,8 +20,8 @@ export class HTTPService  {
     }
 
     get(path:string='', parameters:any={},){
-        return this.http.get(this.basepath + path ) 
-        .map((res: Response) => {return res.json();})  
+        return this.http.get(this.basepath + path )
+        .map((res: Response) => {return res.json();})
     }
 
     authGet(path:string=''){
@@ -30,11 +30,11 @@ export class HTTPService  {
         headers.append('auth', localStorage.getItem('token'));
         let options = new RequestOptions({headers: headers});
         // if(Object.keys(parameters).length > 0){
-        //     return this.http.get(this.basepath + path +'/'+ parameters, options ) 
-        //     .map((res: Response) => {return res.json();})  
+        //     return this.http.get(this.basepath + path +'/'+ parameters, options )
+        //     .map((res: Response) => {return res.json();})
         // }
-        return this.http.get(this.basepath + path, options ) 
-        .map((res: Response) => {return res.json();})  
+        return this.http.get(this.basepath + path, options )
+        .map((res: Response) => {return res.json();})
     }
 
     authPGet(path:string='', parameters:any={},){
@@ -43,11 +43,11 @@ export class HTTPService  {
         headers.append('auth', localStorage.getItem('token'));
         let options = new RequestOptions({headers: headers});
         // if(Object.keys(parameters).length > 0){
-        //     return this.http.get(this.basepath + path +'/'+ parameters, options ) 
-        //     .map((res: Response) => {return res.json();})  
+        //     return this.http.get(this.basepath + path +'/'+ parameters, options )
+        //     .map((res: Response) => {return res.json();})
         // }
-        return this.http.get(this.basepath + path +'/'+ parameters, options ) 
-        .map((res: Response) => {return res.json();})  
+        return this.http.get(this.basepath + path +'/'+ parameters, options )
+        .map((res: Response) => {return res.json();})
     }
 
     authPost(path:string='', body:any,  ) {

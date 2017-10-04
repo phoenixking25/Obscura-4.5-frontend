@@ -25,26 +25,26 @@ export class OurTeamComponent implements OnInit {
     this.router.navigateByUrl('/');
   }
   getAlias(): void{
-    this.http.authGet('http://localhost:8080/level/').subscribe(alias => this.navigator(alias));
+    this.http.authGet('/level/').subscribe(alias => this.navigator(alias));
   }
   navigator(alias: any): void{
     if (alias['status'] === 'success') {
       this.router.navigateByUrl('/level/' + alias['alias']);
     }
     else {
-      this.openSnackBar(alias['status']);
+      this.openSnackBar(alias['msg']);
     }
   }
   leaderboard(): void{
     this.router.navigateByUrl('/leaderboard');
   }
   openSnackBar(status: string){
-    this.snackBar.open(status, 'Try Again Later',{
+    this.snackBar.open(status, 'OK',{
       duration: 2500,
     });
   }
   getLevelList(){
-    this.http.authGet('http://localhost:8080/levelList/')
+    this.http.authGet('/levelList/')
               .subscribe(level => this.level = level);
   }
   openLevel(alias: string){

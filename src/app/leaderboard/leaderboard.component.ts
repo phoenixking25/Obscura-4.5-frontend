@@ -16,7 +16,7 @@ import { Alias } from '../_models/Alias';
 })
 export class LeaderboardComponent implements OnInit {
   leaderboard: LeaderBoard[] = [{username: '', college: '', level: ''}];
-  alias: Alias = {alias: '', status: ''};
+  alias: any ;
   reload: boolean = true;
   level: any[] = [{'name': '', 'levelNo': null}];
 
@@ -32,29 +32,28 @@ export class LeaderboardComponent implements OnInit {
     this.getLevelList();
   }
   getPlayer() {
-    this.http.authGet('http://localhost:8080/leaderboard/')
+    this.http.authGet('/leaderboard/')
       .subscribe(leaderboard => this.leaderboard = leaderboard);
   }
-  Logout(): void{
+  Logout(){
     localStorage.clear();
     this.router.navigateByUrl('/');
   }
-  getAlias(): void{
-    this.http.authGet('http://localhost:8080/level/').subscribe(alias => this.navigator(alias));
+  getAlias(){
+    this.http.authGet('/level/').subscribe(alias => this.navigator(alias));
   }
-  navigator(alias: any): void{
-    if (alias['status'] === 'success') {
+  navigator(alias: any){
+    if (alias['status'] == 'success') {
       this.router.navigateByUrl('/level/' + alias['alias']);
-    }
-    else {
-      this.openSnackBar(alias['status']);
+    } else {
+      this.openSnackBar(alias['msg']);
     }
   }
-  ourTeam(): void{
+  ourTeam(){
     this.router.navigateByUrl('/team');
   }
   openSnackBar(status: string){
-    this.snackBar.open(status, 'Try Again Later',{
+    this.snackBar.open(status, 'OK',{
       duration: 2500,
     });
   }
@@ -65,7 +64,7 @@ export class LeaderboardComponent implements OnInit {
     });
   }
   getLevelList(){
-    this.http.authGet('http://localhost:8080/levelList/')
+    this.http.authGet('/levelList/')
               .subscribe(level => this.level = level);
   }
   openLevel(alias: string){

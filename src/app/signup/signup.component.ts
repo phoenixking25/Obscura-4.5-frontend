@@ -14,7 +14,7 @@ import {MdSnackBar} from '@angular/material';
 export class SignupComponent implements OnInit {
   player: Player = {name:'', email:'', username:'', college:'', phone: null, level:'', levelId: null, picture:''};
   signupres: SignupRes = {status:''};
-  
+
   constructor(
     private http: HTTPService,
     private router: Router,
@@ -25,14 +25,14 @@ export class SignupComponent implements OnInit {
     this.player['name'] = localStorage.getItem('name')
     this.player['email'] = localStorage.getItem('email')
   }
-  
+
   submitForm(player: any){
     player['name'] = localStorage.getItem('name')
     player['email'] = localStorage.getItem('email')
-    player['level'] = '1';
-    player['levelId'] = 1;
+    player['level'] = '0';
+    player['levelId'] = 0;
     player['picture'] = 'kgkjh';
-    this.http.post('http://localhost:8080/signup',player)
+    this.http.post('/signup',player)
     .subscribe(signupres => this.created(signupres));
     localStorage.removeItem('name');
     localStorage.removeItem('email');

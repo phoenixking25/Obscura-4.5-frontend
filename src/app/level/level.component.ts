@@ -28,7 +28,7 @@ export class LevelComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.http.authGet('http://localhost:8080/level/').subscribe(
+    this.http.authGet('/level/').subscribe(
       (res => console.log(res))
     );
     this.route.params.subscribe((param: ParamMap) => {
@@ -37,12 +37,12 @@ export class LevelComponent implements OnInit {
     });
   }
   getLevel(){
-    this.http.authPGet('http://localhost:8080/level', this._id)
+    this.http.authPGet('/level', this._id)
       .subscribe(clevel => this.clevel = clevel);
   }
 
   submitForm(ans: any){
-    this.http.authPostAns('http://localhost:8080/level', this._id, ans)
+    this.http.authPostAns('/level', this._id, ans)
     .subscribe(ansres => this.navigator(ansres));
     this.answer['ans'] = '';
     }
@@ -73,7 +73,7 @@ export class LevelComponent implements OnInit {
     this.router.navigateByUrl('/level/' + alias);
   }
   getLevelList(){
-    this.http.authGet('http://localhost:8080/levelList/')
+    this.http.authGet('/levelList/')
               .subscribe(level => this.level = level);
   }
 }

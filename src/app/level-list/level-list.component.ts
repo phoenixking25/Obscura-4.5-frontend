@@ -37,7 +37,7 @@ export class LevelListComponent implements OnInit {
     });
   }
   getLevelList(){
-    this.http.authGet('http://localhost:8080/levelList/')
+    this.http.authGet('/levelList/')
               .subscribe();
   }
 }

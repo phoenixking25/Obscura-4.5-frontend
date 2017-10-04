@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   fbRes: string[];
   loginres: LoginRes = {status: '', token: '', backend: '', provider: ''};
   bar: boolean = false;
-
+  private basepath = "http://api.obscuranitkkr.co.in";
   constructor(
         private fb: FacebookService,
         private zone: NgZone,
@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
     this.bar = true;
   }
   fbInfo(token: string): void{
-    this.http.post('http://localhost:8080/getToken/', {token, 'provider': 'facebook'})
+    this.http.post('/getToken/', {token, 'provider': 'facebook'})
     .subscribe(loginres => this.navigate(loginres));
     this.http.get('https://graph.facebook.com/v2.8/me?fields=id%2Cname%2Cemail%2Cpicture&format=json&access_token='+token).subscribe()
   }
@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('token', loginres['token']);
       localStorage.setItem('provider', loginres['provider']);
       if (localStorage.getItem('provider') == 'google'){
-        window.location.href = 'http://localhost:4200/leaderboard';
+        window.location.href = this.basepath +  '/leaderboard';
       }
       this.router.navigateByUrl('/leaderboard');
     }
@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('name', loginres['name']);
       localStorage.setItem('email', loginres['backend']);
       if (loginres['provider'] === 'google'){
-        window.location.href = 'http://localhost:4200/signup';
+        window.location.href = this.basepath + '/signup';
       }
       this.router.navigateByUrl('/signup');
     }
@@ -96,7 +96,7 @@ export class LoginComponent implements OnInit {
  }
   googleInfo(token: string, email: string): void{
   this.http.get('https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=' + token).subscribe();
-  this.http.post('http://localhost:8080/getToken/',{'token': token, 'email': email, 'provider': 'google'})
+  this.http.post('/getToken/',{'token': token, 'email': email, 'provider': 'google'})
   .subscribe(loginres => this.navigate(loginres));
   }
 }
