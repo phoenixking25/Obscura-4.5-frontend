@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('token', loginres['token']);
       localStorage.setItem('provider', loginres['provider']);
       if (localStorage.getItem('provider') == 'google'){
-        window.location.href = this.basepath +  '/leaderboard';
+        window.location.href = this.basepath +  '/#/leaderboard';
       }
       this.router.navigateByUrl('/leaderboard');
     }
