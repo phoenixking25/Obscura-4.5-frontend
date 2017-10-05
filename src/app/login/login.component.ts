@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('name', loginres['name']);
       localStorage.setItem('email', loginres['backend']);
       if (loginres['provider'] === 'google'){
-        window.location.href = this.basepath + '/signup';
+        window.location.href = this.basepath + '/#/signup';
       }
       this.router.navigateByUrl('/signup');
     }

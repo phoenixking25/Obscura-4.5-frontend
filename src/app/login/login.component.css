@@ -51,3 +51,11 @@
 button{
   margin: auto;
 }
+#fbbtn{
+  color: white;
+  background-color:#3b5998;
+}
+#googlebtn{
+  color: white;
+  background-color:  #dd4b39;
+}
