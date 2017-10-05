@@ -38,6 +38,7 @@
     background-color: #49E3C3;
     color: white;
     height: 70%;
+    font-family: 'Inconsolata', monospace;
 }
 
 #logo {
@@ -71,10 +72,19 @@
 
 #two {
     color: #2C3E50;
+    font-family: 'Inconsolata', monospace;
 }
 #btns{
   text-align: right;
 }
 #title{
   padding-bottom: 1%;
+}
+#contact{
+  width:72%;
+  margin: auto;
+}
+#rules{
+  width:72%;
+  margin: auto;
 }
