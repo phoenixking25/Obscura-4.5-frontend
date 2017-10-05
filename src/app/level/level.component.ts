@@ -15,7 +15,7 @@ import {MdSnackBar} from '@angular/material';
 })
 export class LevelComponent implements OnInit {
   _id: string;
-  clevel: Level = {name: '', photo: '', ans:'', js: ''};
+  clevel: any = {name: '', photo: '', ans:'', js: ''};
   answer: any = {ans: ''};
   ansres: any = {status: '', nextalias:''};
   level: any[] = [{'name': '', 'levelNo': null}];

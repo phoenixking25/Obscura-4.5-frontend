@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { LocationStrategy } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router'
+
 
 import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
@@ -19,12 +22,10 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 import { MaterialModule } from './material.module';
 import { FacebookModule } from 'ngx-facebook';
-import { AuthService, AppGlobals } from 'angular2-google-login';
-import { GooglesigninComponent } from './googlesignin/googlesignin.component';
+// import { AuthService, AppGlobals } from 'angular2-google-login';
+// import { GooglesigninComponent } from './googlesignin/googlesignin.component';
 import { AuthServices } from './_services/authguard.service';
 import { CanActivateViaAuthGuard } from './authGaurd';
-import { LevelListComponent } from './level-list/level-list.component';
-import { CreateLevelComponent } from './create-level/create-level.component';
 import {CountDown} from "ng2-date-countdown";
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -38,10 +39,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     LevelComponent,
     LeaderboardComponent,
     SignupComponent,
-    GooglesigninComponent,
+    // GooglesigninComponent,
     OurTeamComponent,
-    LevelListComponent,
-    CreateLevelComponent,
     CountDown
   ],
   imports: [
@@ -53,9 +52,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MaterialModule,
     BrowserAnimationsModule,
     FacebookModule.forRoot(),
-    ScrollToModule.forRoot()
+    ScrollToModule.forRoot(),
   ],
-  providers: [AuthService, AuthServices, CanActivateViaAuthGuard],
+  providers: [AuthServices, CanActivateViaAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
