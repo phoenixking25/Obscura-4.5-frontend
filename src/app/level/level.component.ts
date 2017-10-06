@@ -20,7 +20,8 @@ export class LevelComponent implements OnInit {
   ansres: any = {status: '', nextalias:''};
   level: any[] = [{'name': '', 'levelNo': null}];
   private sub: any;
-  private basepath = "http://localhost:4200";
+  // private basepath = "http://localhost:4200";
+  private basepath = "https://obscuranitkkr.co.in";
   islevel12: boolean = false;
   constructor(
     private router: Router,

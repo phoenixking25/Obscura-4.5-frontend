@@ -19,7 +19,8 @@ export class LeaderboardComponent implements OnInit {
   alias: any ;
   reload: boolean = true;
   level: any[] = [{'name': '', 'levelNo': null}];
-  private basepath = "http://localhost:4200";
+  // private basepath = "http://localhost:4200";
+  private basepath = "https://obscuranitkkr.co.in";
 
   constructor(
     private http: HTTPService,
