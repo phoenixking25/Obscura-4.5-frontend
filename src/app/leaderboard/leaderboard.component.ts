@@ -19,6 +19,7 @@ export class LeaderboardComponent implements OnInit {
   alias: any ;
   reload: boolean = true;
   level: any[] = [{'name': '', 'levelNo': null}];
+  private basepath = "http://localhost:4200";
 
   constructor(
     private http: HTTPService,
@@ -44,7 +45,8 @@ export class LeaderboardComponent implements OnInit {
   }
   navigator(alias: any){
     if (alias['status'] == 'success') {
-      this.router.navigateByUrl('/level/' + alias['alias']);
+      // this.router.navigateByUrl('/level/' + alias['alias']);
+      window.location.href = this.basepath +  '/#/level/' + alias['alias'] ;
     } else {
       this.openSnackBar(alias['msg']);
     }

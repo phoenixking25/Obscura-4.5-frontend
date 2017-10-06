@@ -14,24 +14,44 @@
         </md-menu>
     </div>
 </md-card>
-<md-card class="content" id="one">
-    <md-card id="question">
-        <h2><b></b></h2>
-        <br>
-        <img src="{{clevel.picture}}" usemap="#image-map">
-        <br>
-        <br>
-        <form #myForm="ngForm" (ngSubmit)="submitForm(myForm.value)">
-            <md-input-container>
-                <input mdInput placeholder="Type your answer here" [(ngModel)]="answer.ans" name="ans">
-            </md-input-container><br>
-            <button md-raised-button>Submit</button>
-        </form>
-    </md-card>
-    <md-card id="twitter">
-        <a class="twitter-timeline" href="https://twitter.com/obscura_nit_kkr">Tweets by Obscura</a>
-    </md-card>
+<md-card class="content" id="one" fxLayout="row" fxLayoutAlign="center">
+  <md-card id="question">
+    <md-card-header>
+      <div id="timer" *ngIf="islevel12"></div>
+    </md-card-header>
+    <h2 align="center" class="hacked_font">{{clevel.d_name}}</h2>
+    <img md-card-image src="{{clevel.picture}}">
+    <div [innerHTML]="clevel.html"></div>
+    <md-card-content>
+      <form #myForm="ngForm" (ngSubmit)="submitForm(myForm.value)">
+        <md-input-container>
+            <input mdInput placeholder="Type your answer here" [(ngModel)]="answer.ans" name="ans">
+        </md-input-container><br>
+        <button md-raised-button id="ansSubmitBtn">Submit</button>
+    </form>
+    </md-card-content>
+  </md-card>
+  <md-card id="twitter">
+    <a class="twitter-timeline" href="https://twitter.com/obscura_nit_kkr">Tweets by Obscura</a>
+  </md-card>
 </md-card>
-<md-card class=" footer ">
+<!-- <script>{{clevel.js}}</script> -->
+<!-- <md-card class=" footer ">
     <h4><b>GAWDS 2017</b></h4>
+</md-card> -->
+<!-- <md-card id="question">
+  <h2><b></b></h2>
+  <br>
+  <img src="{{clevel.picture}}" usemap="#image-map">
+  <br><div [innerHTML]="clevel.html"></div>
+  <br>
+  <form #myForm="ngForm" (ngSubmit)="submitForm(myForm.value)">
+      <md-input-container>
+          <input mdInput placeholder="Type your answer here" [(ngModel)]="answer.ans" name="ans">
+      </md-input-container><br>
+      <button md-raised-button>Submit</button>
+  </form>
 </md-card>
+<md-card id="twitter">
+  <a class="twitter-timeline" href="https://twitter.com/obscura_nit_kkr">Tweets by Obscura</a>
+</md-card> -->

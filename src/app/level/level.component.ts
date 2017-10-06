@@ -5,7 +5,7 @@ import { Location } from '@angular/common';
 import { Level } from '../_models/level';
 import { Router, NavigationEnd } from '@angular/router';
 import {MdSnackBar} from '@angular/material';
-
+import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-level',
@@ -15,19 +15,23 @@ import {MdSnackBar} from '@angular/material';
 })
 export class LevelComponent implements OnInit {
   _id: string;
-  clevel: any = {name: '', photo: '', ans:'', js: ''};
+  clevel: any = {d_name: '', name: '', photo: '', ans:'', js: '', html:''};
   answer: any = {ans: ''};
   ansres: any = {status: '', nextalias:''};
   level: any[] = [{'name': '', 'levelNo': null}];
   private sub: any;
+  private basepath = "http://localhost:4200";
+  islevel12: boolean = false;
   constructor(
     private router: Router,
     private http: HTTPService,
     private route: ActivatedRoute,
-    public snackBar: MdSnackBar
+    public snackBar: MdSnackBar,
+    private _sanitizer: DomSanitizer
   ) { }
 
   ngOnInit() {
+    this.getLevelList();
     this.http.authGet('/level/').subscribe(
       (res => console.log(res))
     );
@@ -38,7 +42,18 @@ export class LevelComponent implements OnInit {
   }
   getLevel(){
     this.http.authPGet('/level', this._id)
-      .subscribe(clevel => this.clevel = clevel);
+      .subscribe(clevel => this.runjs(clevel));
+  }
+  runjs(clevel: any){
+    this.clevel = clevel;
+    console.log(clevel.levelNo);
+    if(clevel.name == '12'){
+      this.islevel12 = true;
+    }
+    clevel['html'] = this._sanitizer.bypassSecurityTrustHtml(clevel['html']);
+    setTimeout(function() {
+      eval(clevel.js);
+    }, 1000)
   }
 
   submitForm(ans: any){
@@ -47,11 +62,10 @@ export class LevelComponent implements OnInit {
     this.answer['ans'] = '';
     }
     navigator(alias: any): void{
+      this.openSnackBar(alias['msg']);
       if (alias['status'] === 'success') {
-        this.router.navigateByUrl('/level/' + alias['nextalias']);
-      }
-      else {
-        this.openSnackBar();
+        // this.router.navigateByUrl('/level/' + alias['nextalias']);
+        window.location.href = this.basepath +  '/#/level/' + alias['nextalias'] ;
       }
     }
   Logout(): void{
@@ -61,8 +75,8 @@ export class LevelComponent implements OnInit {
   leaderboard(): void{
     this.router.navigateByUrl('/leaderboard');
   }
-  openSnackBar(){
-    this.snackBar.open('Wrong Answer', 'Try Again',{
+  openSnackBar(msg: string){
+    this.snackBar.open(msg, 'OK',{
       duration: 2500,
     });
   }
@@ -77,3 +91,4 @@ export class LevelComponent implements OnInit {
               .subscribe(level => this.level = level);
   }
 }
+
