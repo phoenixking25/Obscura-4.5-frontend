@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   fbRes: string[];
   loginres: LoginRes = {status: '', token: '', backend: '', provider: ''};
   bar: boolean = false;
-  // private basepath = "http://localhost:4200";
+  //private basepath = "http://localhost:4200";
   private basepath = "https://obscuranitkkr.co.in"
   constructor(
         private fb: FacebookService,

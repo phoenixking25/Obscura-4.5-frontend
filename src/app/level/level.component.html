@@ -9,7 +9,7 @@
         <button  md-raised-button (click)="Logout()">LOGOUT</button>
         <md-menu #menu="mdMenu">
           <div *ngFor="let list of level">
-            <button md-menu-item (click)="openLevel(list.name)">LEVEL {{list.levelNo}}</button>
+            <button md-menu-item (click)="openLevel(list.name)">{{list.levelNo}}</button>
           </div>
         </md-menu>
     </div>
@@ -32,7 +32,7 @@
     </md-card-content>
   </md-card>
   <md-card id="twitter">
-    <a class="twitter-timeline" href="https://twitter.com/obscura_nit_kkr">Tweets by Obscura</a>
+    <a class="twitter-timeline" href="https://twitter.com/Obscura_NITKKR">Tweets by Obscura</a>
   </md-card>
 </md-card>
 <!-- <script>{{clevel.js}}</script> -->
