@@ -9,8 +9,8 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class HTTPService  {
     constructor(private http: Http ){}
-    //private basepath = "http://localhost:8080";
-    private basepath = "https://api.obscuranitkkr.co.in";
+    private basepath = "http://localhost:8080";
+    //private basepath = "https://api.obscuranitkkr.co.in";
     post(path:string='', body:any,  ) {
             let headers = new Headers();
             headers.append('Content-Type', 'application/json');
